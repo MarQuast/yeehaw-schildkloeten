@@ -1,6 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+
+
+//struct für karten
+
 typedef struct {
     int o;
     int r;
@@ -8,6 +12,10 @@ typedef struct {
     int l;
     int rot;
 } card;
+
+
+
+//karten initialisieren
 
 card * newcard(int o, int r, int u, int l) {
     card *k=malloc(sizeof(card));
@@ -17,29 +25,6 @@ card * newcard(int o, int r, int u, int l) {
     k->l=l;
     k->rot=0;
     return k;
-}
-
-void rotate(card *c) {
-    int temp=c->o;
-    c->o=c->r;
-    c->r=c->u;
-    c->u=c->l;
-    c->l=temp;
-    c->rot++;
-}
-
-int fitsright(card *c, card *r) {
-    if (c->r+r->l==0) {
-        return 1;
-    }
-    return 0;
-}
-
-int fitsbelow(card *c, card *b) {
-    if (c->u+b->o==0) {
-        return 1;
-    }
-    return 0;
 }
 
 void initcards(card c[9]) {
@@ -59,6 +44,43 @@ void initcards(card c[9]) {
     c[8]=*newcard(-2,-4,2,1);
 
 }
+
+
+
+//rotieren
+
+void rotate(card *c) {
+    int temp=c->o;
+    c->o=c->r;
+    c->r=c->u;
+    c->u=c->l;
+    c->l=temp;
+    c->rot++;
+}
+
+
+
+//funktionen zum überprüfen
+
+int fitsright(card *c, card *r) {
+    if (c->r+r->l==0) {
+        return 1;
+    }
+    return 0;
+}
+
+int fitsbelow(card *c, card *b) {
+    if (c->u+b->o==0) {
+        return 1;
+    }
+    return 0;
+}
+
+
+
+
+//feld ausgeben
+
 
 void printfield(card f[3][3]) {
     for (int i=0; i<3; i++) {
