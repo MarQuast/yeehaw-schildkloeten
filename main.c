@@ -167,45 +167,4 @@ int main(void) {
   //  rotate(&cards[1]);
 
   brute_force(0, 0, field, cards, colors);
-
-  /*    while (placed1<3) {
-          int i=1;
-          field[0][0]=cards[i-1];
-          while (i<9) {
-              int j=0;
-              do {
-                  if (fitsright(&cards[0], &cards[i])==1) {
-                      field[0][1]=cards[i];
-                      placed1++;
-                      break;
-                  }
-                  rotate(&cards[i]);
-                  j++;
-              }while (j<3);
-
-              i++;
-          }
-      }
-
-  */
-  /*printf("%d\n",cards[0].o);
-  printf("%d\n",cards[0].r);
-  printf("%d\n",cards[0].u);
-  printf("%d\n",cards[0].l);
-  rotate(&cards[0]);
-  printf("%d\n",cards[0].o);
-  printf("%d\n",cards[0].r);
-  printf("%d\n",cards[0].u);
-  printf("%d\n",cards[0].l);
-  printf("%d\n",karte->r);
-  printf("%d\n",karte->u);
-  printf("%d\n",karte->l);
-  printf("%d\n",karte->rot);
-  rotate(karte);
-  printf("%d\n",karte->o);
-  printf("%d\n",karte->r);
-  printf("%d\n",karte->u);
-  printf("%d\n",karte->l);
-  printf("%d\n",karte->rot);*/
-  // printfield(field);
 }
