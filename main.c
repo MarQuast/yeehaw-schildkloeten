@@ -85,34 +85,45 @@ int fits(int i, int j, card field[3][3]) {
   return fit;
 }
 
+
 void printfield(card f[3][3], int colors[5]) {
   printf("\e[1;1H\e[2J");
   for (int i = 0; i < 3; i++) {
     for (int j = 0; j < 3; j++) {
       card temp = f[i][j];
       printf("\033[1;%dm   %3d    ", colors[abs(temp.o)], temp.o);
+
     }
     printf("\n");
     for (int j = 0; j < 3; j++) {
       card temp = f[i][j];
+
       printf("\033[1;%dm%3d   \033[1;%dm%3d ", colors[abs(temp.l)], temp.l,
              colors[abs(temp.r)], temp.r);
+
+
     }
     printf("\n");
     for (int j = 0; j < 3; j++) {
       card temp = f[i][j];
+
       printf("\033[1;%dm   %3d    ", colors[abs(temp.u)], temp.u);
     }
     printf("\033[1;0m\n");
+
+
   }
   printf("-----------------------------------------------------\n");
 }
 
 // brute force
 //
+
 void brute_force(int current_i, int current_j, card field[3][3], card cards[9],
                  int colors[5]) {
   //  printf("aufgerufen auf %d|%d\n", current_i, current_j);
+
+
   int i, j, k, karten_nummer;
   karten_nummer = 0;
   for (i = 0; i < 9; i++) {
@@ -128,6 +139,7 @@ void brute_force(int current_i, int current_j, card field[3][3], card cards[9],
 
     for (j = 0; j < 5; j++) {
       rotate(&field[current_i][current_j]);
+
       printfield(field, colors);
       usleep(10000);
       if (fits(current_i, current_j, field)) {
@@ -136,6 +148,8 @@ void brute_force(int current_i, int current_j, card field[3][3], card cards[9],
           brute_force(current_i + 1, current_j, field, cards, colors);
         } else if (current_j < 2) {
           brute_force(0, current_j + 1, field, cards, colors);
+
+
         } else {
           printf("fertig");
           exit(1);
@@ -143,7 +157,9 @@ void brute_force(int current_i, int current_j, card field[3][3], card cards[9],
       }
     }
   }
+
   //  printf("memnsch");
+
   field[current_i][current_j].l = 0;
   field[current_i][current_j].r = 0;
   field[current_i][current_j].o = 0;
@@ -155,6 +171,7 @@ void brute_force(int current_i, int current_j, card field[3][3], card cards[9],
 // feld ausgeben
 
 int main(void) {
+
   int colors[5];
   colors[0] = 30;
   colors[1] = 33;
@@ -162,9 +179,14 @@ int main(void) {
   colors[3] = 32;
   colors[4] = 36; // should be brown
   card field[3][3] = {0};
+
+
   card cards[9];
   initcards(cards);
   //  rotate(&cards[1]);
 
+
   brute_force(0, 0, field, cards, colors);
+
+
 }
