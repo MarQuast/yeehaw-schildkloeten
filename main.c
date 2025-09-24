@@ -86,7 +86,7 @@ int fits(int i, int j, card field[3][3]) {
 }
 
 void printfield(card f[3][3], int colors[5]) {
-
+  printf("\e[1;1H\e[2J");
   for (int i = 0; i < 3; i++) {
     for (int j = 0; j < 3; j++) {
       card temp = f[i][j];
@@ -167,8 +167,6 @@ int main(void) {
   //  rotate(&cards[1]);
 
   brute_force(0, 0, field, cards, colors);
-
-  int placed1 = 0;
 
   /*    while (placed1<3) {
           int i=1;
