@@ -1,3 +1,0 @@
-C:/Users/Minecraft/CLionProjects/schildkroeten/cmake-build-debug/CMakeFiles/schildkroeten.dir
-C:/Users/Minecraft/CLionProjects/schildkroeten/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/Minecraft/CLionProjects/schildkroeten/cmake-build-debug/CMakeFiles/rebuild_cache.dir
